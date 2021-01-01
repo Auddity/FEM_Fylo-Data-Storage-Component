@@ -110,6 +110,10 @@ body {
   cursor: pointer;
 }
 
+.upload-item:active {
+  transform: scale(0.9);
+}
+
 .data {
   position: relative;
   background-color: #1d2c67;

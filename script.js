@@ -32,8 +32,6 @@ function calculateSpace(index) {
   updateUsed();
   updateRemaining();
   updateBar();
-
-  console.log(startingValue);
 }
 
 function updateUsed() {

@@ -55,6 +55,10 @@ body {
     margin-right: 1.1rem;
     cursor: pointer;
   }
+
+  &-item:active {
+    transform: scale(.9);
+  }
 }
 
 // Data Count Section
