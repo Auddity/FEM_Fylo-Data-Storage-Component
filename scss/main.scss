@@ -11,13 +11,14 @@ body {
   background-size: cover;
   font-family: $fontStack;
   font-size: 14px;
-
+  
   @include mq(1000px) {
     background-image: url('../images/bg-desktop.png');
     background-position: bottom;
     background-size: 100%;
   }
 }
+
 
 // Upload & Logo Section
 .upload {
@@ -52,6 +53,7 @@ body {
     width: 50px;
     height: 50px;
     margin-right: 1.1rem;
+    cursor: pointer;
   }
 }
 
@@ -69,7 +71,7 @@ body {
     flex: 2;
     display: inline-block;
     text-align: left;
-    margin-top: 40px;
+    margin-top: 43px;
   }
 
   h3 {
@@ -88,7 +90,7 @@ body {
 
   &-inner-bar {
     height: 100%;
-    width: 82%;
+    // width: 82%;
     background-image: $gradient;
     border-radius: 10px;
     padding: 2px;
