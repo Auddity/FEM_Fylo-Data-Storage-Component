@@ -36,24 +36,6 @@
   font-size: 3rem;
 }
 
-.notch {
-  display: none;
-}
-
-@media only screen and (min-width: 1000px) {
-  .notch {
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: -30px;
-    width: 0;
-    height: 0;
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent;
-    border-right: 30px solid #fefefe;
-  }
-}
-
 body {
   height: 100vh;
   width: 100vw;
@@ -192,7 +174,7 @@ body {
 @media only screen and (min-width: 1000px) {
   .data-remaining {
     top: -60px;
-    left: 75%;
+    left: calc(90% - 100px);
   }
 }
 
@@ -201,4 +183,22 @@ body {
   letter-spacing: 1px;
   margin-left: 10px;
   color: #848794;
+}
+
+.data-remaining .notch {
+  display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+  .data-remaining .notch {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-right: 30px solid #fefefe;
+  }
 }

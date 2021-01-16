@@ -94,7 +94,7 @@ body {
 
   &-inner-bar {
     height: 100%;
-    // width: 82%;
+    // width: 86%;
     background-image: $gradient;
     border-radius: 10px;
     padding: 2px;
@@ -135,7 +135,7 @@ body {
 
     @include mq(1000px) {
       top: -60px;
-      left: 75%;
+      left: calc(90% - 100px);
     }
 
     & span:nth-child(2) {
@@ -143,6 +143,22 @@ body {
       letter-spacing: 1px;
       margin-left: 10px;
       color: $grayishBlue;
+    }
+
+    .notch {
+      display: none;
+    
+      @include mq(1000px) {
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -30px;
+        width: 0;
+        height: 0;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-right: 30px solid #fefefe;
+      }
     }
   }
 }

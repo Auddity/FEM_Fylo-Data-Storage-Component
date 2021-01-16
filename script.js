@@ -4,67 +4,68 @@ const statusBar = document.getElementById('statusBar');
 const max = document.getElementById('max');
 const remaining = document.getElementById('remaining');
 
-var startingValue = 815;
+var counter;
 var maxSpace = 1000;
-var usedSpace = startingValue;
+var startingValue = 815;
+counter = startingValue;
 
 max.innerHTML = `${maxSpace} gb`;
 updateUsed();
 updateRemaining();
 updateBar();
 
-items.forEach((item, index) => {
-  item.addEventListener('click', () => {
-
-    calculateSpace(index);
-  });
-});
-
-function calculateSpace(index) {
-	const paper = items[index] == items[0];
+function calclulateChange(index) {
+  const paper = items[index] == items[0];
 	const folder = items[index] == items[1];
 	const cloud = items[index] == items[2];
 
-  if (paper) startingValue += Math.round(Math.random() * 50);
-  if (folder) startingValue += Math.round(Math.random() * 100);
-  if (cloud) startingValue -= Math.round(Math.random() * 100);	
-
+  if (paper) counter += Math.round(Math.random() * 50);
+  if (folder) counter += Math.round(Math.random() * 100);
+  if (cloud) counter -= Math.round(Math.random() * 100);
+  
   updateUsed();
   updateRemaining();
   updateBar();
 }
 
 function updateUsed() {
-  usedSpace = startingValue;
-  if (usedSpace >= maxSpace) {
+  if (counter >= maxSpace) {
     used.innerText = 'all';
-  } else if (usedSpace <= 0) {
+    counter = maxSpace
+  } else if (counter <= 0) {
     used.innerText = 'none';
+    counter = 0;
   } else {
-    used.innerText = `${usedSpace} gb`;
-  }
+    used.innerText = `${counter} gb`;
+  };
 };
 
 function updateRemaining() {
-  var remainingValue = maxSpace - startingValue;
-
-  if (usedSpace >= maxSpace) {
+  var remainingValue = maxSpace - counter;
+  if (counter >= maxSpace) {
     remaining.innerText = '0';
-  } else if (usedSpace <= 0) {
+  } else if (counter <= 0) {
     remaining.innerText = `${maxSpace}`;
   } else {
     remaining.innerText = `${remainingValue}`;
-  }
+  };
 };
 
 function updateBar() {
-  var updatedWidth = Math.round((startingValue / maxSpace) * 100);
-
-  if (usedSpace >= maxSpace) {
+  var updatedWidth = Math.round((counter / maxSpace) * 100);
+  
+  if (counter >= maxSpace) {
     statusBar.style.width = '100%';
-  } else if (usedSpace <= 25) {
-    statusBar.style.width = '3%';
+  } else if ((counter <= 42)) {
+    statusBar.style.width = '20px';
   } else {
-    statusBar.style.width = `${updatedWidth}%`; 
-  }
+    statusBar.style.width = `${updatedWidth}%`;
+  };
 };
+
+// Event Listener
+items.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    calclulateChange(index);
+  });
+});
